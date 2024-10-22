@@ -1,0 +1,72 @@
+#CSS: 
+
+*: The universal selector applies styles to all elements.
+padding: 0;: Resets padding for all elements to zero.
+margin: 0;: Resets margin for all elements to zero.
+box-sizing: border-box;: Changes the box model to include padding and border in the element's total width and height.
+
+#main: An ID selector targeting the element with the ID "main".
+width: 100%;: Sets the width to 100% of the parent element.
+height: 100vh;: Sets the height to 100% of the viewport height.
+padding-bottom: 50px;: Adds 50 pixels of padding to the bottom.
+background-color: #81ecec;: Sets a light cyan background color.
+display: flex;: Enables flexbox layout for child elements.
+flex-wrap: wrap;: Allows child elements to wrap onto multiple lines if necessary.
+
+#addBtn: An ID selector for the button element.
+position: fixed;: Positions the button relative to the viewport, keeping it in place during scrolling.
+right: 10px;: Positions the button 10 pixels from the right edge of the viewport.
+top: 10px;: Positions the button 10 pixels from the top edge of the viewport.
+background-color: #2d3436;: Sets a dark background color.
+color: white;: Sets the text color to white.
+padding: 10px;: Adds 10 pixels of padding inside the button.
+border: 0;: Removes the default border.
+outline: 0;: Removes the outline on focus.
+border-radius: 5px;: Rounds the corners of the button.
+
+.note: A class selector for note elements.
+width: 400px;: Sets a fixed width of 400 pixels.
+height: 400px;: Sets a fixed height of 400 pixels.
+background-color: white;: Sets the background color to white.
+margin: 15px;: Adds 15 pixels of margin on all sides.
+margin-top: 55px;: Overrides the top margin to 55 pixels.
+
+.tool: A class selector for tool elements.
+width: 100%;: Sets the width to 100% of the parent element.
+background-color: #2d3436;: Sets a dark background color.
+color: white;: Sets the text color to white.
+padding: 5px;: Adds 5 pixels of padding inside the tool area.
+display: flex;: Enables flexbox layout for child elements.
+justify-content: end;: Aligns child elements to the end (right) of the container.
+
+
+#JavaScript:
+const: Declares a constant variable that cannot be reassigned.
+addBtn: A variable that stores the reference to the HTML element with the ID addBtn.
+document.querySelector("#addBtn"): Selects the first element in the document that matches the specified CSS selector (in this case, the element with ID addBtn).
+main: A variable that stores the reference to the HTML element with the ID main.
+
+const saveNotes = () => { ... }: Defines a function named saveNotes using an arrow function syntax.
+const notes = document.querySelectorAll(".note textarea");: Selects all <textarea> elements within elements that have the class note and stores them in a NodeList.
+const data = [];: Initializes an empty array to hold the values of the notes.
+notes.forEach((note) => { ... });: Iterates over each note in the notes NodeList.
+data.push(note.value);: Adds the value of each textarea to the data array.
+if (data.length == 0) { ... }: Checks if the data array is empty.
+localStorage.removeItem("notes");: Removes the notes item from local storage if there are no notes.
+else { localStorage.setItem("notes", JSON.stringify(data)); }: If there are notes, it converts the data array to a JSON string and saves it in local storage under the key notes.
+
+addBtn.addEventListener("click", function() { ... });: Attaches an event listener to the addBtn element that listens for a click event.
+function() { addNote(); }: Defines an anonymous function that calls the addNote function when the button is clicked.
+
+const addNote = (text = "") => { ... }: Defines a function named addNote that takes an optional parameter text, defaulting to an empty string.
+const note = document.createElement("div");: Creates a new <div> element and stores it in the note variable.
+note.classList.add("note");: Adds the class note to the newly created <div>.
+note.innerHTML = \...;: Sets the inner HTML of the note element, creating a structure with a tool section and a <textarea>.
+
+note.querySelector(".trash"): Selects the first child element with the class trash within the note element.
+.addEventListener("click", function() { ... });: Attaches a click event listener to the trash icon.
+note.remove();: Removes the note element from the DOM.
+saveNotes();: Calls the saveNotes function to update the local storage.
+
+note.querySelector(".save"): Selects the first child element with the class save within the note element.
+**`.addEventListener("click", function()
